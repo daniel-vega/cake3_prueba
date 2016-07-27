@@ -26,29 +26,49 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
+    <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('theme.css') ?>
     <?= $this->Html->css('cake.css') ?>
+
+    <?= $this->Html->script('jquery-2.2.4.min.js') ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button aria-expanded="false" data-target="#bs-example-navbar-collapse-6" data-toggle="collapse" class="collapsed navbar-toggle" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="bs-example-navbar-collapse-6" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="/articles/">Articles</a>
+          </li>
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          <li>
+            <a href="/editors/">Editor</a>
+          </li>
         </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <div class="container col-md-12">
         <?= $this->fetch('content') ?>
     </div>
     <footer>
