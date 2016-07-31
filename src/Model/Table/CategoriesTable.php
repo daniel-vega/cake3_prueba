@@ -33,7 +33,7 @@ class CategoriesTable extends Table
         parent::initialize($config);
 
         $this->table('categories');
-        $this->displayField('id');
+        $this->displayField('nombre'); //es para mostrar lo que uno quiera
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
