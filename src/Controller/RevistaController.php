@@ -52,22 +52,14 @@ class RevistaController extends AppController
     {
 
         $revistum = $this->Revista->newEntity();
-
-        $this->loadModel("Articles");
         $this->Article = TableRegistry::get('Articles');
-        $articlum = $this->Article->newEntity();
-        $articles = $this->Article->find('list')->all()->toArray();
-
-        $this->loadModel("Categories");
         $this->Category = TableRegistry::get('Categories');
-        $categorias = $this->Category->newEntity();
-        $category = $this->Category->find('list')->all()->toArray();
-
-        $this->set(compact('revistum','articles','category'));
-        $this->set('_serialize', ['revistum']);
-
+        $this->loadModel("Articles");
+        $this->loadModel("Categories");
 
           if ($this->request->is('post')) {
+            $articlum = $this->Article->newEntity();
+            $categorias = $this->Category->newEntity();
             $form1 = array(
                 "id_category" => $this->request->data['id_category'],
                 "id_article" => $this->request->data['id_article']
@@ -90,12 +82,12 @@ class RevistaController extends AppController
             //$this->Articles->save($article);
             $categorias = $this->Category->patchEntity($categorias, $form3);
 
-            $revistum = $this->Revista->patchEntity($revistum, $form1);
+            ////$revistum = $this->Revista->patchEntity($revistum, $form1);
             //$this->loadModel("Articles");
             // para el articulo
-            $articlum = $this->Articles->patchEntity($articlum, $form2);
+            ////$articlum = $this->Articles->patchEntity($articlum, $form2);
             //$this->Articles->save($article);
-            $categorias = $this->Category->patchEntity($categorias, $form3);
+            ////$categorias = $this->Category->patchEntity($categorias, $form3);
 
             if ($this->Revista->save($revistum) && $this->Article->save($articlum) && $this->Category->save($categorias)) {
                 $this->Flash->success(__('The revistum has been saved.'));
@@ -105,7 +97,10 @@ class RevistaController extends AppController
             }
         }
 
-
+        $articles = $this->Article->find('list')->all()->toArray();
+        $category = $this->Category->find('list')->all()->toArray();
+        $this->set(compact('revistum','articles','category'));
+        $this->set('_serialize', ['revistum']);
 
     }
 

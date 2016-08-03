@@ -66,6 +66,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <li>
             <a href="/revista/">Revista</a>
           </li>
+          </li>
+          <li>
+            <a href="/newspapers/">Newspapers</a>
+          </li>
         </ul>
       </div>
     </div>
