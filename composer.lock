@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8c8eee0878b0852c6d5651b334b36d7f",
-    "content-hash": "601fb31c8d0d4504a213a0c837654da4",
+    "hash": "23336bcf178fc2fe4ddf53b0c1c5c4f7",
+    "content-hash": "a39ca3f20355146a7b821da61a4a1913",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -125,6 +125,51 @@
                 "localization"
             ],
             "time": "2014-08-24 00:00:00"
+        },
+        {
+            "name": "cakephp/acl",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/acl.git",
+                "reference": "9b9808e14cb07ac45b40cf957c7eec177813c567"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/acl/zipball/9b9808e14cb07ac45b40cf957c7eec177813c567",
+                "reference": "9b9808e14cb07ac45b40cf957c7eec177813c567",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.1.0"
+            },
+            "require-dev": {
+                "cakephp/cakephp-codesniffer": "^2.0",
+                "phpunit/phpunit": ">= 4.2"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Acl\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/acl/graphs/contributors"
+                }
+            ],
+            "description": "Acl Plugin for CakePHP 3.x framework",
+            "homepage": "http://cakephp.org",
+            "keywords": [
+                "acl",
+                "cakephp"
+            ],
+            "time": "2016-05-24 00:02:18"
         },
         {
             "name": "cakephp/cakephp",

@@ -51,6 +51,11 @@ class RevistaController extends AppController
     public function add()
     {
 
+        $user     = $this->Auth->user();
+
+        debug($user['username']);
+
+
         $revistum = $this->Revista->newEntity();
         $this->Article = TableRegistry::get('Articles');
         $this->Category = TableRegistry::get('Categories');

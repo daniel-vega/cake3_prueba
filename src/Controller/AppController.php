@@ -28,6 +28,14 @@ use Cake\Event\Event;
 class AppController extends Controller
 {
 
+    public $usuarioActual = '';
+
+    public $components = [
+        'Acl' => [
+            'className' => 'Acl.Acl'
+        ]
+    ];
+
     /**
      * Initialization hook method.
      *
@@ -43,7 +51,37 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-    }
+
+        $this->loadComponent('Auth', [
+        'authorize' => [
+            'Acl.Actions' => ['actionPath' => 'controllers/']
+        ],
+        'loginAction' => [
+            'plugin' => false,
+            'controller' => 'Users',
+            'action' => 'login'
+        ],
+        'loginRedirect' => [
+            'plugin' => false,
+            'controller' => 'Articles',
+            'action' => 'index'
+        ],
+        'logoutRedirect' => [
+            'plugin' => false,
+            'controller' => 'Users',
+            'action' => 'login'
+        ],
+        'unauthorizedRedirect' => [
+            'controller' => 'Users',
+            'action' => 'login',
+            'prefix' => false
+        ],
+        'authError' => 'Te estás pasando de listo? gordito 1313.',
+        'flash' => [
+            'element' => 'error'
+        ]
+    ]);
+  }
 
     /**
      * Before render callback.

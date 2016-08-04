@@ -70,6 +70,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <li>
             <a href="/newspapers/">Newspapers</a>
           </li>
+          <?php
+          if($this->request->session()->read('Auth.User.username')!=null){
+            ?>
+          <li>
+            <a href="/users/logout">Cerrar sesión <?php echo h($this->request->session()->read('Auth.User.username'));?></a>
+          </li>
+          <?php } ?>
         </ul>
       </div>
     </div>
