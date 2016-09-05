@@ -33,6 +33,7 @@ class NewspapersTable extends Table
         $this->table('newspapers');
         $this->displayField('id_newspapers');
         $this->primaryKey('id_newspapers');
+        $this->hola = "hola";
     }
 
     /**

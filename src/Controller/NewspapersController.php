@@ -28,6 +28,7 @@ class NewspapersController extends AppController
 
         $this->set(compact('newspapers'));
         $this->set('_serialize', ['newspapers']);
+
     }
 
 
@@ -47,6 +48,7 @@ class NewspapersController extends AppController
      */
     public function view($id = null)
     {
+      // cargar un layout diferente
         $newspaper = $this->Newspapers->get($id, [
             'contain' => []
         ]);
@@ -63,6 +65,7 @@ class NewspapersController extends AppController
     public function add()
     {
 
+      debug($this->hola);
         $newspaper = $this->Newspapers->newEntity();
         debug($this->request->data);
         debug(array($this->request->data['uploadfile']));

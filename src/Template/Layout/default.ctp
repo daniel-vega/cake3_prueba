@@ -70,6 +70,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <li>
             <a href="/newspapers/">Newspapers</a>
           </li>
+          <li>
+            <a href="/arquivos/upload">Upload</a>
+          </li>
+          <li>
+            <a href="/users/">Users</a>
+          </li>
           <?php
           if($this->request->session()->read('Auth.User.username')!=null){
             ?>

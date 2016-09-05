@@ -76,7 +76,7 @@ class AppController extends Controller
             'action' => 'login',
             'prefix' => false
         ],
-        'authError' => 'Te estás pasando de listo? gordito 1313.',
+        'authError' => 'Te estás pasando de listo gordito? 1313.',
         'flash' => [
             'element' => 'error'
         ]

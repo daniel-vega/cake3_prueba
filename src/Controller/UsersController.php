@@ -16,6 +16,9 @@ class UsersController extends AppController
     {
         parent::initialize();
         //$this->Auth->allow();
+
+        //cargo el componente para subir archivos
+        $this->loadComponent('Upload');
     }
 
     public function login() {
@@ -77,10 +80,17 @@ class UsersController extends AppController
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
+            //debug($this->request->data);
             $user = $this->Users->patchEntity($user, $this->request->data);
+            if (!empty($this->request->data['uploadfile'])) {
+                debug($this->Users);
+                $this->Upload->sendUser($this->request->data['uploadfile']);
+                debug($this->Upload);
+                //debug("todo ok");
+            }
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-
+                $this->Flash->success(__('El usuario ha sido creado con éxito'));
+                //debug("entra aqui");
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
@@ -136,5 +146,11 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function profile()
+    {
+      //
+
     }
 }

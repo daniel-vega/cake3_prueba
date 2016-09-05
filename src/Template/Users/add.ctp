@@ -7,15 +7,17 @@
     </ul>
 </nav>
 <div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
+    <?= $this->Form->create($user, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Add User') ?></legend>
         <?php
             echo $this->Form->input('username');
             echo $this->Form->input('password');
             echo $this->Form->input('group_id', ['options' => $groups]);
+            echo $this->Form->file('uploadfile');
+            //echo $this->Form->file('uploadfile.', ['multiple']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button('Submit', ['type' => 'submit']) ?>
     <?= $this->Form->end() ?>
 </div>
